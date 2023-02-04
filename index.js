@@ -21,11 +21,13 @@ function verificarRadio() {
 
     if (radio.value == "RD") {
         let calculo = caixa / 5.06
-        res.innerHTML = calculo.toFixed(2).replace('.', ',')
+        
+        res.innerHTML = "Resultado: $" + calculo.toFixed(2).replace('.', ',')
         historicoDeConversao()
     } else if (radio.value == "DR") {
         let calculo = caixa * 5.06
-        res.innerHTML = calculo.toFixed(2).replace('.', ',')
+
+        res.innerHTML = "Resultado: $" + calculo.toFixed(2).replace('.', ',')
         historicoDeConversao()
     } else {
         res.innerHTML = "é necessário escolher uma opção!"
@@ -38,14 +40,13 @@ function historicoDeConversao() {
     var historico = document.getElementById('historico')
 
     historico.innerHTML = ""
-    
+
     array.push(caixa)
 
     array.forEach(element => {
-        historico.insertAdjacentHTML('beforeend', `<p>$${element.replace('.', ',')}</p>`)
+        historico.insertAdjacentHTML('beforeend', ` <p>$${element.replace('.', ',')}</p>`)
 
     });
-
 }
 
 btn.addEventListener('click', converterMoneda)
